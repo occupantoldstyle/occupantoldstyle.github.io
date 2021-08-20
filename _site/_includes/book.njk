@@ -1,0 +1,41 @@
+---
+site_title: Occupant Fonts Text Laboratory 
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0 ">
+        <title>{{ site_title }} | {{title}}</title>
+        <link rel="stylesheet" href="../../_includes/slick.css" />
+        <link rel="stylesheet" href="../../_includes/style.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="../../_includes/slick.js" ></script>
+        <script src="../../_includes/index.js" ></script>
+
+    </head>
+    <body id="book">
+        {% include 'nav.njk' %}
+        {% include 'nav_inline.njk' %}
+        <main lang={{language}}>
+            <div id="folded"></div>
+            <div id="folio">
+                <h5> {{ title }}</h5>
+                 <div class="toc">Table of Contents</div>
+            </div>
+            <div id="slide">
+                <div id="cover" data-title="Cover">
+                    <section class="cover-title">
+                        <h1> {{ title }} </h1>
+                        <h2> {{ halftitle }} </h2>
+                        <h3> {{ author }} </h3>
+                    </section>
+                    <div class="cover-copyright">{{copyright}}</div>
+                </div>
+                {{ content | safe }}
+            </div>
+        </main>
+        {% include 'about.njk' %}
+    </body>
+</html>

@@ -1,0 +1,569 @@
+@font-face {
+    font-family: OccupantOldstyleRoman;
+    src: url(./OccupantOldStyleVF_roman.ttf);
+  }
+@font-face {
+    font-family: OccupantOldstyleItalic;
+    src: url(./OccupantOldStyleVF_italic.ttf);
+}
+
+:root {
+    --black: #161616;
+    --white: #F2F2EC;
+    --grey: #C4C4C4;
+    --wght: 20;
+    --inline-x: 30vw;
+    --inline-y: 50px;
+    --dropcap: 5rem;
+    --screen-width-ipad: 75vh;
+    --screen-height-ipad:calc(100vh - 40px);
+  }
+
+*{
+	font-variation-settings: 'wght' var(--wght);
+    box-sizing: border-box;
+    transition: ease-in .2s;
+}
+
+::-moz-selection { /* Code for Firefox */
+    color: var(--white);
+    background: var(--black);
+  }
+  
+::selection {
+color: var(--white);
+background: var(--black);
+}
+
+  
+html {
+    font-family: 'OccupantOldstyleRoman';
+    font-variant-ligatures: normal;
+}
+
+body {
+    background-color: var(--black);
+    padding: 10px;
+    margin: 0;
+    overflow-x:hidden;
+}
+
+i, em {
+    font-family: 'OccupantOldstyleItalic';
+    font-style: normal;
+}
+
+/* defatult h1-h3: book spreads */
+
+h1 {
+    font-size: 1.5rem;
+}
+h2 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 10px;
+    text-transform: uppercase;
+    margin-block-start: 1.33em;
+    margin-block-end: 0.5rem;
+}
+
+h5 {
+    font-size: 0.8rem;
+}
+
+strong {
+    font-weight: normal;
+}
+
+main {
+    z-index: 0;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    /* width: 50vw;
+    height: 66.66vw; */
+    background-image: linear-gradient(to right, #7C7C79 0%, var(--white) 4%);
+    overflow: hidden;
+    width: var(--screen-width-ipad);
+    height: var(--screen-height-ipad);
+    font-size: 1.5rem;
+    background-color: var(--white);
+
+
+    border-radius: 10px;
+    margin: 10px auto;
+
+    resize:none;
+}
+main.mobile {
+    width: 36vh;
+    height: 64vh;
+    margin: 18vh 0;
+    resize:none;
+}
+main.responsive {
+    width: 50vh;
+    height: 50vh;
+    margin: 25vh 0;
+    resize: both;
+}
+
+ul, li {
+    list-style: none;
+}
+
+nav {
+    z-index: 100;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+}
+nav li {
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+}
+nav li, div.sub{
+    margin-right: 6px;
+    padding: 5px;
+    background-color: var(--white);
+    border-radius: 4px;
+}
+
+nav div.sub {
+    position: absolute;
+    padding: 6px 12px;
+    margin-top: 8px;
+    min-width: 320px;
+    border: solid 1px var(--black);
+}
+
+nav div.sub li {
+    margin-right: 0;
+}
+
+nav.global .sub {
+    display: none;
+}
+
+nav.global .sub.visible {
+    display: block;
+}
+
+nav.global div.sub > div:nth-child(5),
+nav.global div.sub > div:last-child {
+    width: 50%;
+    float: left;
+}
+
+nav.inline {
+    display: none;
+    position: fixed;
+    top: var(--inline-y);
+    left: var(--inline-x);
+    z-index: 100;
+}
+
+
+/* nav li:last-child {
+} */
+nav li#about {
+    position: fixed;
+    right: 15px;
+    
+}
+
+/*group*/
+nav .radio-group {
+    padding: 0;
+    background-color: transparent;
+   
+    margin-right:0;
+    border-radius: 0;
+
+}
+nav .radio-group li {
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+}
+
+nav li ul {
+    margin: 0;
+}
+
+nav li.selected, 
+nav div.selected {
+    background-color: var(--grey);
+}
+
+nav .radio-group input[type="radio"] {
+    position:fixed;
+    left:-9999px;
+}
+nav .radio-group input[type="radio"]:checked+label{ 
+    border: 2px solid var(--black);
+    cursor: pointer;
+} 
+nav .radio-group input[type="radio"]+label{ 
+    border: 2px solid var(--white);
+    padding: 2px 4px;
+    display: block;
+    background-color: var(--white);
+}
+
+
+
+ [data-axes] div {
+    display: inline-block;
+ }
+
+
+
+ .range {
+    top: -4px;
+    position: relative;
+    -webkit-appearance: none;
+    width: 74%;
+    height: 1px;
+    background: var(--black);
+    outline: none;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  
+  .range:hover {
+    opacity: 1;
+  }
+  
+  .range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background:var(--white);
+    border: solid 1px var(--black);
+    cursor: pointer;
+  }
+  
+  .range::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: red;
+    cursor: pointer;
+  }
+
+
+/*radio-grop screen-size*/
+
+nav .radio-group.screen-size li {
+    margin-right: -4px;
+}
+
+nav .radio-group.screen-size li:last-child {
+    margin-right:6px;
+}
+
+nav .radio-group.screen-size input[type="radio"]+label{
+    padding:5px;
+    border: 0;
+}
+
+nav .radio-group.screen-size input[type="radio"]:checked+label{ 
+    background-color: var(--grey); 
+    border: 0;
+} 
+
+nav .radio-group.screen-size li:first-child input[type="radio"]+label {
+    border-radius: 4px 0 0 4px; 
+}
+nav .radio-group.screen-size li:last-child input[type="radio"]+label {
+    border-radius: 0 4px 4px 0; 
+}
+
+
+/*radio-group lspacing and margin */ 
+nav .radio-group.lspacing {
+    padding-right: 24px;
+}
+nav .radio-group.lspacing li input[type="radio"]+label,
+nav .radio-group.margin li input[type="radio"]+label{
+    padding: 2px;
+}
+nav .radio-group.lspacing li:first-child input[type="radio"]+label,
+nav .radio-group.margin li:first-child input[type="radio"]+label{
+    padding-left:0;
+}
+
+
+nav .sub .radio-group input[type="radio"]:checked+label{ 
+    border: 2px solid var(--white);
+} 
+nav .sub input[type="radio"]+label svg,
+nav .sub input[type="radio"]+label svg{ 
+    fill: none;
+} 
+nav .sub input[type="radio"]+label svg rect,
+nav .sub input[type="radio"]+label svg rect,
+nav .sub input[type="radio"]+label svg line,
+nav .sub input[type="radio"]+label svg line{ 
+    stroke: var(--black);
+} 
+
+nav .sub input[type="radio"]:checked+label svg,
+nav .sub input[type="radio"]:checked+label svg{ 
+    fill: var(--black);
+} 
+
+nav .sub input[type="radio"]:checked+label svg line,
+nav .sub input[type="radio"]:checked+label svg line{ 
+    stroke: var(--white);
+} 
+
+
+
+
+/*sub group: font style*/
+
+
+nav .radio-group [data-style=regular]+label {
+    font-family: 'OccupantOldstyleRoman';
+}
+nav .radio-group [data-style=italic]+label {
+    font-family: 'OccupantOldstyleItalic';
+}
+
+/*sub group: range -- font-weight*/
+
+
+[data-axes=wght] .min{
+    font-variation-settings: 'wght' 10;
+}
+[data-axes=wght] .max{
+    font-variation-settings: 'wght' 100;
+}
+
+/*sub group: range -- font-size*/
+[data-axes=size] .min{
+    font-size: 11px;
+}
+[data-axes=size] .max{
+    font-size: 30px;
+    line-height: 11px;
+}
+
+
+/*sub group: radio bgcolor*/
+
+nav .radio-group input[data-bg=transparent]+label  { 
+    background-color: var(--white);
+    color: var(--black);
+}
+nav .radio-group input[data-bg=black]+label  { 
+    background-color: var(--black); 
+    color: var(--white);
+}
+nav .radio-group input[data-bg=white] +label { 
+    background-color: white;
+    color: var(--black);
+}
+
+nav .radio-group input[data-bg=natural]+label{ 
+    background-color: #DCE1C5;
+    color: var(--black);
+}
+
+/*radio-group spacing*/
+nav .radio-group input[data-spacing=sm]+label{ 
+
+}
+
+nav .radio-group input[data-spacing=md]+label{ 
+
+}
+
+nav .radio-group input[data-spacing=lg]+label{ 
+
+}
+
+
+div.btn {
+    display: inline-block;
+    padding:2px 4px;
+}
+
+
+div.highlighter-b {
+    background-color: var(--black);
+    color: var(--white);
+}
+div.highlighter-c {
+    background-color: #78E7FF;
+}
+div.highlighter-m {
+    background-color: #FF78C1;
+}
+
+div.highlighter-y {
+    background-color: #FCFF65;
+}
+
+
+
+
+/* page specific override */
+
+body#home {
+    background-color: var(--white);
+}
+
+body#book {
+    background-color: var(--black);
+}
+
+/**slider**/
+
+
+#folio {
+    position: fixed;
+    width: 100%;
+    font-size: 0.8rem
+    
+    /* background-color: inherit; */
+    /* background-image: linear-gradient(to bottom, var(--white) 80%, rgba(255,255,255, 0));
+    z-index: 10; */
+}
+#slide {
+    
+    padding: .5rem 1rem;
+    padding-right: 0; /*important*/
+    padding-top: 10%;
+    overflow: auto;
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+#slide, #folio {
+    padding-left: 5%;
+}
+.toc {
+    border: solid 1px var(--black);
+    padding: 5px;
+    /* border-radius: 3px; */
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+.toc::after {
+    /* content: "↓"; */
+}
+/* #folio.h5 {} */
+
+.cover-title {
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.cover-copyright {
+    font-size: 9px;
+    text-align: left;
+}
+
+.cover-title h1 {
+    font-size: 2em;
+}
+
+.slick-slide h1, 
+.slick-slide h2, 
+.slick-slide h3 {
+    
+    text-transform: capitalize;
+}
+
+div[id^='chapter-'] h3:first-child{
+    padding-bottom: 20vw;
+}
+
+section.multi-columns {
+    width: auto;
+    height: 100%;
+    overflow: hidden;
+    /* width: 50vw;
+    height: 66.66vw; */
+}
+
+/** about **/
+
+section#info {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    padding: 20px;
+    background-color: var(--white);
+    transform: translateX(300px);
+}
+
+section#info.visible {
+    transform: translateX(0);
+    z-index: 300;
+}
+
+.menutoggle-bg {
+    position: fixed;
+    display: none;
+    background-color: var(--black);
+    opacity: .8;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 200;
+}
+
+.menutoggle-bg.show {
+    display: block;
+}
+
+.lock-scroll{
+    overflow-y: hidden;
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+}
+
+
+
+/*book*/
+
+#cover {
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main h3 + p:first-letter,
+main h2 + p:first-letter {
+    float: left;
+    font-size: var(--dropcap);
+    line-height: 60px;
+    padding-top: 4px;
+    padding-right: 8px;
+    padding-left: 3px;
+}
